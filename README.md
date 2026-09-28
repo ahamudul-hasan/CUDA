@@ -1,4 +1,5 @@
 <!-- Premium Badge Collection -->
+
 ![NVIDIA](https://img.shields.io/badge/NVIDIA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 ![CUDA](https://img.shields.io/badge/CUDA-13.1-FF6B00?style=for-the-badge&logo=nvidia&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-WSL2-0078D4?style=for-the-badge&logo=windows&logoColor=white)
@@ -22,6 +23,7 @@
 > 🚀 This guide provides **step-by-step instructions** to install **CUDA 13.1 Toolkit** on **Windows Subsystem for Linux 2 (WSL2)** with full NVIDIA GPU support.
 
 ### ⚠️ Important Notice
+
 > **Do NOT install NVIDIA Linux drivers in WSL2** — WSL2 uses the Windows GPU driver automatically through the GPU paravirtualization layer.
 
 ---
@@ -58,14 +60,19 @@
 ## 📥 Step 1: Download CUDA Installer
 
 ### Verify WSL2 version
+
 ```bash
 wsl --version
 ```
+
 ### Check current Linux distribution
+
 ```
 cat /etc/os-release
 ```
+
 ### Verify GPU visibility
+
 ```
 nvidia-smi
 ```
@@ -111,14 +118,6 @@ sudo sh cuda_13.1.0_590.44.01_linux.run
 
 <div align="center">
 
-> 💡 **Installation Tips:**
-> - Accept the End User License Agreement
-> - **Uncheck** the Driver installation option
-> - Select CUDA Toolkit, samples, and documentation
-> - Use default installation path: `/usr/local/cuda-13.1`
-
-</div>
-
 ---
 
 ### 🛠️ Step 4: Configure System Environment
@@ -149,21 +148,29 @@ source ~/.bashrc
 Once CUDA is installed, you can compile and run the various C/C++ and CUDA examples in this repository:
 
 ##### Navigate to the basic examples directory
+
 ```
 cd 2_Basic/
 ```
+
 ##### Compile the matrix-vector multiplication program
+
 ```
 nvcc -o matrix_vector.exe 3_matrix_vector.cu
 ```
+
 ##### Run the program
+
 ```
 ./matrix_vector
 ```
+
 ##### For gcc compile
+
 ```
 gcc 2_matrix_vector.c -o matrix_vector
 ```
+
 ---
 
 ### ✅ Step 5: Installation Verification
@@ -176,51 +183,8 @@ gcc 2_matrix_vector.c -o matrix_vector
 <tr>
 <td>
 
-```bash
-nvcc --version
-```
-
-</td>
-<td>
-
-```
-nvcc: NVIDIA (R) Cuda compiler driver
-Copyright (c) 2005-2024 NVIDIA Corporation
-Built on Mon_Apr__3_23:27:21_PDT_2024
-Cuda compilation tools, release 13.1, V13.1.xxx
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
-```bash
-nvidia-smi
-```
-
-</td>
-<td>
-
-```
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.xx.xx    Driver Version: 525.xx.xx    CUDA Version: 13.1   |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  NVIDIA ...         Off  | 00000000:xx:xx.x Off |                  N/A |
-+-------------------------------+----------------------+----------------------+
-```
-
-</td>
-</tr>
-</table>
-
-
 ---
+
 ## 🎉 Installation Complete!
 
 ---
-
-
