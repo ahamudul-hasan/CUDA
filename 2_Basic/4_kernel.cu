@@ -4,7 +4,10 @@
 
 __global__ void test01(){
     // Print the blocks and threads IDs
-    printf("\nThe block ID is %d --- The thread ID is %d\n", blockIdx.x, threadIdx.x);
+    // warp=32 threads. (128 threads/block) --> (128/32 = 4 warp/block)
+    int warp_ID_value = 0;
+    warp_ID_value = threadIdx.x / 32;
+    printf("\nThe block ID is %d --- The thread ID is %d\n --- the warp ID %d", blockIdx.x, threadIdx.x, warp_ID_value);
 }
 
 int main(){
